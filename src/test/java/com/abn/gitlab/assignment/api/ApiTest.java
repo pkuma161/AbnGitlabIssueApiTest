@@ -62,5 +62,25 @@ public class ApiTest {
 
         assertThat(response.getStatusCode() == 204).isTrue();
     }
+    @Test
+    /*
+     * This test is to test that title field is mandatory for creating a new issue and
+     * if missing response should return 400
+     * */
+    public void testValidateTitle() {
+
+        Issues payload = new Issues.Builder()
+                .setId(0)
+                .setIid(12)
+                .setProjectId(35550309)
+                .setCreatedAt("2022-04-22T18:33:20.513Z")
+                .setState("opened")
+                .build();
+
+        Response response = IssuesApi.createIssue(payload);
+
+        assertThat(response.getStatusCode() == 400).isTrue();
+    }
+
 }
 

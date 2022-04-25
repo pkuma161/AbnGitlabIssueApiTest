@@ -67,7 +67,7 @@ public class ApiTest {
      * This test is to test that title field is mandatory for creating a new issue and
      * if missing response should return 400
      * */
-    public void testValidateTitle() {
+    public void testValidateMissingTitleResponseCode() {
 
         Issues payload = new Issues.Builder()
                 .setId(0)
